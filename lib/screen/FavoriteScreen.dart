@@ -5,11 +5,11 @@ class FavoritePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      // appBar: AppBar(
-      //   title: const Text('Second Nested Page'),
-      // ),
-      body: Center(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Favorites'),
+      ),
+      body: const Center(
         child: Text('Favorite Page'),
       ),
     );

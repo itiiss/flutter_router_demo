@@ -23,7 +23,8 @@ class _HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: TabBar(
+        title: const Text('Home'),
+        bottom: TabBar(
           controller: _tabController,
           tabs: const [
             Tab(

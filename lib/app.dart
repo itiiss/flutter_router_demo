@@ -12,14 +12,27 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   var tabIndex = 0;
 
+  renderBody() {
+    switch (tabIndex) {
+      case 0:
+        return const HomePage();
+      case 1:
+        return const FavoritePage();
+      default:
+        return const FavoritePage();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Router Demo'),
-      ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (value) {
+          // Navigator.of(context).push(
+          //   MaterialPageRoute<void>(
+          //     builder: (BuildContext context) => const FavoritePage(),
+          //   ),
+          // );
           setState(() {
             tabIndex = value;
           });
@@ -29,9 +42,10 @@ class _MyAppState extends State<MyApp> {
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
               icon: Icon(Icons.favorite), label: 'Favorites'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profolio'),
         ],
       ),
-      body: tabIndex == 0 ? const HomePage() : const FavoritePage(),
+      body: renderBody(),
     );
   }
 }
